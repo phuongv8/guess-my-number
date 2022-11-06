@@ -22,17 +22,24 @@ let check = document.querySelector(".check");
 // let initial_score = Number(score.textContent);
 
 const answer = Math.ceil(Math.random() * 20);
-number.textContent = answer;
 
 let current_score = 20;
 
 function checkNumber() {
   const guess_number = Number(guess.value);
 
+  // when there is no input
   if (!guess_number) {
     message.textContent = "Invalid input!";
+
+    // when player wins
   } else if (guess_number === answer) {
     message.textContent = "Correct number!";
+    number.textContent = answer;
+    document.querySelector("body").style.backgroundColor = "#60b347";
+    document.querySelector(".number").style.width = "15rem";
+
+    // when guess is too high
   } else if (guess_number > answer) {
     if (current_score > 1) {
       message.textContent = "Too high!";
@@ -42,6 +49,8 @@ function checkNumber() {
       message.textContent = "You lost ¯\\_(ツ)_/¯";
       score.textContent = 0;
     }
+
+    //when guess is too low
   } else if (guess_number < answer) {
     if (current_score > 1) {
       message.textContent = "Too low!";
