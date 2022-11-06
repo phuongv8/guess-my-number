@@ -40,6 +40,7 @@ function checkNumber() {
       score.textContent = current_score;
     } else {
       message.textContent = "You lost ¯\\_(ツ)_/¯";
+      score.textContent = 0;
     }
   } else if (guess_number < answer) {
     if (current_score > 1) {
@@ -48,6 +49,7 @@ function checkNumber() {
       score.textContent = current_score;
     } else {
       message.textContent = "You lost ¯\\_(ツ)_/¯";
+      score.textContent = 0;
     }
   } else {
     message.textContent = "Err";
