@@ -34,7 +34,7 @@ function checkNumber() {
   } else if (guess_number === answer) {
     message.textContent = "Correct number!";
   } else if (guess_number > answer) {
-    if (current_score > 0) {
+    if (current_score > 1) {
       message.textContent = "Too high!";
       current_score -= 1;
       score.textContent = current_score;
@@ -42,7 +42,7 @@ function checkNumber() {
       message.textContent = "You lost ¯\\_(ツ)_/¯";
     }
   } else if (guess_number < answer) {
-    if (current_score > 0) {
+    if (current_score > 1) {
       message.textContent = "Too low!";
       current_score -= 1;
       score.textContent = current_score;
