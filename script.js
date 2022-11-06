@@ -14,15 +14,16 @@
 
 let number = document.querySelector(".number");
 let message = document.querySelector(".message");
-let score = document.querySelector(".score");
+// let score = document.querySelector(".score");
 let highscore = document.querySelector(".highscore");
 let guess = document.querySelector(".guess");
 let check = document.querySelector(".check");
-let initial_score = Number(score.textContent);
+// let initial_score = Number(score.textContent);
 
 const answer = Math.ceil(Math.random() * 20);
-console.log(answer);
 number.textContent = answer;
+
+let score = 20;
 
 function checkNumber() {
   const guess_number = Number(guess.value);
@@ -33,10 +34,12 @@ function checkNumber() {
     message.textContent = "Correct number!";
   } else if (guess_number > answer) {
     message.textContent = "Too high!";
-    score.textContent = initial_score - 1;
+    score -= 1;
+    document.querySelector(".score").textContent = score;
   } else {
     message.textContent = "Too low!";
-    score.textContent = initial_score - 1;
+    score -= 1;
+    document.querySelector(".score").textContent = score;
   }
 }
 
