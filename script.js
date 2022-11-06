@@ -19,6 +19,7 @@ let score = document.querySelector(".score");
 let highscore = document.querySelector(".highscore");
 let guess = document.querySelector(".guess");
 let check = document.querySelector(".check");
+let again = document.querySelector(".again");
 // let initial_score = Number(score.textContent);
 
 const answer = Math.ceil(Math.random() * 20);
@@ -65,4 +66,18 @@ function checkNumber() {
   }
 }
 
+// reset initial values of number, score, message
+function resetGame() {
+  current_score = 20;
+
+  number.textContent = "?";
+  message.textContent = "Start guessing...";
+  score.textContent = current_score;
+  guess.value = "";
+
+  document.querySelector("body").style.backgroundColor = "#222";
+  document.querySelector(".number").style.width = "13rem";
+}
+
 check.addEventListener("click", checkNumber);
+again.addEventListener("click", resetGame);
