@@ -1,17 +1,18 @@
 "use strict";
 
-// Click 'check' button, collect the input value
-// - if there is no value
-// - if there is wrong value:
-//    - if value is too high/too low
-//    - decrement score by 1
-//    - 'check' button change to 'retry'
-//    - if score = 0, lose game, 'reset' btn
-// - if there is correct value:
-//     - change ? to correct number
-//     - compare high score to current score, update high score
-//     - 'retry' btn change to new game
-//     - background color change to green, reset/new game btn red
+/* Click 'check' button, collect the input value
+- if there is no value
+- if there is wrong value:
+    - if value is too high/too low
+    - decrement score by 1
+    - 'check' button change to 'retry'
+    - if score = 0, lose game, 'reset' btn
+- if there is correct value:
+    - change ? to correct number
+    - compare high score to current score, update high score
+    - 'retry' btn change to new game
+    - background color change to green, reset/new game btn red
+*/
 
 let number = document.querySelector(".number");
 let message = document.querySelector(".message");
@@ -23,8 +24,8 @@ let again = document.querySelector(".again");
 // let initial_score = Number(score.textContent);
 
 const answer = Math.ceil(Math.random() * 20);
-
 let current_score = 20;
+let current_highscore = 0;
 
 function checkNumber() {
   const guess_number = Number(guess.value);
@@ -39,6 +40,12 @@ function checkNumber() {
     number.textContent = answer;
     document.querySelector("body").style.backgroundColor = "#60b347";
     document.querySelector(".number").style.width = "15rem";
+
+    // update high score
+    if (current_score > current_highscore) {
+      current_highscore = current_score;
+      highscore.textContent = current_highscore;
+    }
 
     // when guess is too high
   } else if (guess_number > answer) {
@@ -66,7 +73,6 @@ function checkNumber() {
   }
 }
 
-// reset initial values of number, score, message
 function resetGame() {
   current_score = 20;
 
