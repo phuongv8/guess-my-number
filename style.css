@@ -93,9 +93,13 @@ header {
 }
 
 .again {
-  position: absolute;
+  /* position: absolute;
   top: 2rem;
-  left: 2rem;
+  left: 2rem; */
+}
+
+.again i {
+  /* margin-bottom: 0.4rem; */
 }
 
 .between {
@@ -130,10 +134,17 @@ main {
   background: none;
   color: #eee;
   font-family: inherit;
-  width: 23rem;
+  width: 26rem;
   font-size: 3rem;
   text-align: center;
   z-index: 10;
+}
+
+.left-btn {
+  display: flex;
+  flex-direction: row;
+  width: 26rem;
+  justify-content: space-between;
 }
 
 /* Right section */
