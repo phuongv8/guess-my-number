@@ -14,16 +14,15 @@
     - background color change to green, reset/new game btn red
 */
 
-let number = document.querySelector(".number");
-let message = document.querySelector(".message");
-let score = document.querySelector(".score");
-let highscore = document.querySelector(".highscore");
-let guess = document.querySelector(".guess");
-let check = document.querySelector(".check");
-let again = document.querySelector(".again");
-// let initial_score = Number(score.textContent);
+const number = document.querySelector(".number");
+const message = document.querySelector(".message");
+const score = document.querySelector(".score");
+const highscore = document.querySelector(".highscore");
+const guess = document.querySelector(".guess");
+const check = document.querySelector(".check");
+const again = document.querySelector(".again");
 
-const answer = Math.ceil(Math.random() * 20);
+let answer = Math.ceil(Math.random() * 20);
 let current_score = 20;
 let current_highscore = 0;
 
@@ -47,33 +46,23 @@ function checkNumber() {
       highscore.textContent = current_highscore;
     }
 
-    // when guess is too high
-  } else if (guess_number > answer) {
+    // when guess is wrong
+  } else if (guess_number !== answer) {
     if (current_score > 1) {
-      message.textContent = "Too high!";
+      message.textContent = guess_number > answer ? "Too high!" : "Too low!";
       current_score -= 1;
       score.textContent = current_score;
-    } else {
-      message.textContent = "You lost ¯\\_(ツ)_/¯";
-      score.textContent = 0;
-    }
 
-    //when guess is too low
-  } else if (guess_number < answer) {
-    if (current_score > 1) {
-      message.textContent = "Too low!";
-      current_score -= 1;
-      score.textContent = current_score;
+      // when player loses
     } else {
       message.textContent = "You lost ¯\\_(ツ)_/¯";
       score.textContent = 0;
     }
-  } else {
-    message.textContent = "Err";
   }
 }
 
 function resetGame() {
+  answer = Math.ceil(Math.random() * 20);
   current_score = 20;
 
   number.textContent = "?";
