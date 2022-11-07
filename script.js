@@ -21,6 +21,7 @@ const highscore = document.querySelector(".highscore");
 const guess = document.querySelector(".guess");
 const check = document.querySelector(".check");
 const again = document.querySelector(".again");
+const body = document.querySelector("body");
 
 let answer = Math.ceil(Math.random() * 20);
 let current_score = 20;
@@ -37,8 +38,8 @@ function checkNumber() {
   } else if (guess_number === answer) {
     message.textContent = "Correct number!";
     number.textContent = answer;
-    document.querySelector("body").style.backgroundColor = "#60b347";
-    document.querySelector(".number").style.width = "15rem";
+    body.style.backgroundColor = "#60b347";
+    number.style.width = "15rem";
 
     // update high score
     if (current_score > current_highscore) {
@@ -70,9 +71,17 @@ function resetGame() {
   score.textContent = current_score;
   guess.value = "";
 
-  document.querySelector("body").style.backgroundColor = "#222";
-  document.querySelector(".number").style.width = "13rem";
+  body.style.backgroundColor = "#222";
+  number.style.width = "13rem";
 }
+
+// Check number when player pressed enter
+guess.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    check.click();
+  }
+});
 
 check.addEventListener("click", checkNumber);
 again.addEventListener("click", resetGame);
