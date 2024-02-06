@@ -24,7 +24,7 @@ const again = document.querySelector(".again");
 const body = document.querySelector("body");
 
 let answer = Math.ceil(Math.random() * 20);
-let current_score = 20;
+let current_score = 5;
 let current_highscore = 0;
 
 function checkNumber() {
@@ -64,7 +64,7 @@ function checkNumber() {
 
 function resetGame() {
   answer = Math.ceil(Math.random() * 20);
-  current_score = 20;
+  current_score = 5;
 
   number.textContent = "?";
   message.textContent = "Start guessing...";
