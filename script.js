@@ -24,7 +24,7 @@ const again = document.querySelector(".again");
 const body = document.querySelector("body");
 
 let answer = Math.ceil(Math.random() * 20);
-let current_score = 5;
+let current_score = 4;
 let current_highscore = 0;
 
 function checkNumber() {
